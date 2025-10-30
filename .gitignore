@@ -112,7 +112,6 @@ local.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -165,6 +164,10 @@ $RECYCLE.BIN/
 *.iws
 *.iml
 *.ipr
+
+.bsp
+.metals
+.scala-build
 
 ### NetBeans ###
 /nbproject/private/
