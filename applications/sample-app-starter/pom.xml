@@ -27,6 +27,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
@@ -37,5 +38,12 @@
             <version>5.11.0-M2</version>
             <scope>test</scope>
         </dependency> 
+
+        <dependency>
+            <groupId>provingly.io</groupId>
+            <artifactId>luego_devtools_3</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+
     </dependencies>
 </project>
