@@ -1,0 +1,9 @@
+---
+# This example shows a simple function for which we could omit: imports, exposable, description and usedDecisions
+definition: >
+  'Hello ' + s + '!'
+
+inputs:
+  - name: s
+    type: Text
+output: Text

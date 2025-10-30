@@ -1,0 +1,13 @@
+---
+imports:
+  - luego.text.*
+
+exposable: false
+description: capitalize a text
+usedDecisions: []
+output: Text
+inputs:
+  - name: s
+    type: Text
+definition: >
+  upper(s)

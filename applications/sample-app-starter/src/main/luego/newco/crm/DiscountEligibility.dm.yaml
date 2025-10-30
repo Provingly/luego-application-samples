@@ -1,0 +1,50 @@
+---
+imports: [ 'luego.text.*' ]
+description: Determine eligibility for a discount
+rootNode: 'Eligible'
+
+graph:
+- node: 'Eligible'
+  type: 'Compute'
+  output: 'newco.crm.Response'
+  body: >
+    Response(eligibilityStatus = `criteria 1` and `criteria 2`, 
+         value = 100 + the value of `the request`,
+         message = 'Hello ' + capitalize(the customerName of `the request`)) named res
+
+  level: '0'
+  y: '0.5'
+  dependsOn: ['criteria 1', 'criteria 2', 'request']
+
+- node: 'criteria 1'
+  type: 'Compute'
+  output: 'Boolean'
+  body: >
+    {
+      let sum = (request.products map (p => p.price)).sum;
+      sum >= 200.0
+    }
+
+  level: '1'
+  y: '0.33'
+  dependsOn: ['request']
+
+- node: 'criteria 2'
+  type: 'Compute'
+  output: 'Boolean'
+  body: >
+    depending on the loyaltyLevel of `the request` {
+      case None => false
+      case Some(level) => level >= `LoyaltyLevel.Gold`
+    }
+
+  level: '1'
+  y: '0.66'
+  dependsOn: ['request']
+
+- node: 'request'
+  alias: 'the request'
+  type: 'Info'
+  output: 'newco.crm.Request'
+  level: '2'
+  y: '0.5'

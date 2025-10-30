@@ -1,0 +1,23 @@
+package newco.crm
+
+LoyaltyLevel is an ordered enumeration with domain:
+    'Silver', 'Gold', 'Platinum'
+
+Product is a record
+    - with one id: Text
+    - with one price: Number
+
+Request is a record
+    - with one value: Integer
+    - with one customerName: Text
+    - with zero or one loyaltyLevel: LoyaltyLevel
+    - with zero or more products (product): Product
+
+Response is a record
+    - with one eligibilityStatus: Boolean
+    - with one value: Integer
+    - with one message: Text
+
+// Wrapper types
+//Percentage is a wrapped Number that satisfies:
+//    num => num >= 0.0 and num <= 100.0;

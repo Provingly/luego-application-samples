@@ -1,0 +1,26 @@
+---
+domain: Samples
+appId: luego-starter-app
+groupId: io.provingly
+appVersion: 1.0.0
+
+provider:
+  name: Provingly
+  email: info@provingly.io
+
+lastUpdate: 2025-07-11
+luegoVersion: 0.36.0
+dependencies: []
+
+localizedInfo:
+  - label: Luego Starter App
+    description: A sample to quickstart your development of Luego apps
+    tags: [ 'sample', 'starter' ]
+    lang: en
+    country:
+
+  - label: Luego Starter App
+    description: Un exemple pour accélérer vos développements d'applications Luego
+    tags: [ 'sample', 'starter' ]
+    lang: fr
+    country:

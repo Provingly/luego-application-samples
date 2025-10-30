@@ -1,0 +1,3 @@
+class capitalize_Test {
+  
+}
