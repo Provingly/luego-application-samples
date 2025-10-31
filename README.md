@@ -19,21 +19,27 @@ java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app generate
 
 
 ## Compiling and running an application
-- go to the starter app folder: `cd applications/sample-app-starter`
+Go to the starter app folder: `cd applications/sample-app-starter`
 
-- clean: 
+### Cleaning 
 mvn exec:java -Dexec.mainClass="build_and_run.Main" \
   -Dexec.args="app clean"
 
 java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app clean
 
-- compile: 
+### Compiling and packaging 
 mvn exec:java -Dexec.mainClass="build_and_run.Main" \
   -Dexec.args="app compile"
   
-- package: 
-mvn exec:java -Dexec.mainClass="build_and_run.Main" \
-  -Dexec.args="app package"
+java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app compile
+
+If compilation is succesfull, you should have a file called luego-starter-app.zip in the folder target/luego.
+
+### Running
+
+### Unit testing
+
+### Deploying to Provingly Server
 
 ## The Luego programming language
 Visit https://docs.provingly.io
