@@ -38,72 +38,18 @@ object Main {
 
     val applicationRuntimePath: Path = applicationPath / "target/luego/app" / RelPath(appInfo.appId) / RelPath(appInfo.appVersion)
 
-    println("Application path = " + applicationPath.toString)
-    println("---------- CLEAN ------------------------")
+    println("----------- RUN by loading binary files -----------------------")
+    println("Runtime path = " + applicationRuntimePath)
+    for (scenario <- getScenarios) {
+      println("Running " + scenario.decisionName + "...")
 
-    LuegoAppBuilder.clean(applicationPath)
-    println("----------- READ APP CONFIG -----------------------")
+      val appRunner = new LuegoRunner(applicationRuntimePath)
 
-    val luegoAppRes: ValidationNel[String, DTLuegoApp] = DTLuegoApp.readDTLuegoApp(applicationSrcPath)
-    luegoAppRes match {
-      case scalaz.Failure(s) =>
-        println("applicationSrcPath: " + applicationSrcPath)
-        println("applicationRuntimePath: " + applicationRuntimePath)
-        println("** Error with reading application config " + s)
-      case scalaz.Success(luegoApp) =>
-        println("App configuration has been read successfully")
-        //println("typePackagePaths = " + luegoApp.typePackagePaths)
-        println("----------- COMPILE -----------------------")
-        val appRes = LuegoAppBuilder.build(luegoApp, true)
-        appRes match {
-          case scalaz.Success(rtApp) =>
+      val language = "en"
+      val jsonParams: ujson.Obj = ujson.read(scenario.parameters).obj
+      val evalRes = appRunner.evaluate(scenario.decisionName, jsonParams, language)
 
-            println("----------- PRERUN CHECKS -----------------------")
-
-            if (rtApp.failingModels.nonEmpty && exitOnBuildError) {
-              println("Failing models: " + rtApp.failingModels.mkString(", "))
-              return // exiting the program
-            }
-            println("Working models: " + rtApp.workingModels.map(_.name).mkString(", "))
-
-            for (scenario <- getScenarios) {
-              println()
-              rtApp.workingModels.find(_.fullName == scenario.decisionName) match {
-                case Some(rta) =>
-                  val artefactType = rta match {
-                    case _: RTFunction => "function"
-                    case _: RTDecisionModel => "decision model"
-                  }
-                  println(s"==== ${scenario.name} - will call $artefactType '${scenario.decisionName}'")
-
-                case None =>
-                  println(s"** Error - no runtime artefact called '${scenario.decisionName}'")
-              }
-
-              println("----------- CHECK PRESENCE OF RUNTIME ARTEFACTS -----------------------")
-              val runtimeArtefactFolderPath = applicationRuntimePath / os.RelPath(scenario.decisionName.replace(".", "/"))
-
-              val folderExists = os.exists(runtimeArtefactFolderPath) && os.isDir(runtimeArtefactFolderPath)
-              println("Folder " + runtimeArtefactFolderPath.toString + " " + folderExists)
-
-            }
-
-          case scalaz.Failure(e) => println("** Build error: " + e)
-        }
-
-        println("----------- RUN by loading binary files -----------------------")
-        println("Runtime path = " + applicationRuntimePath)
-        for (scenario <- getScenarios) {
-          println("Running " + scenario.decisionName + "...")
-
-          val appRunner = new LuegoRunner(applicationRuntimePath)
-
-          val language = "en"
-          val jsonParams: ujson.Obj = ujson.read(scenario.parameters).obj
-          val evalRes = appRunner.evaluate(scenario.decisionName, jsonParams, language)
-
-          println("evalRes = " + evalRes)
-        }
+      println("evalRes = " + evalRes)
     }
   }
 }

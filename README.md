@@ -22,20 +22,15 @@ java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app generate
 Go to the starter app folder: `cd applications/sample-app-starter`
 
 ### Cleaning 
-mvn exec:java -Dexec.mainClass="build_and_run.Main" \
-  -Dexec.args="app clean"
-
 java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app clean
 
-### Compiling and packaging 
-mvn exec:java -Dexec.mainClass="build_and_run.Main" \
-  -Dexec.args="app compile"
-  
+### Compiling and packaging   
 java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app compile
 
 If compilation is succesfull, you should have a file called luego-starter-app.zip in the folder target/luego.
 
 ### Running
+mvn exec:java -Dexec.mainClass="runner.Main"
 
 ### Unit testing
 

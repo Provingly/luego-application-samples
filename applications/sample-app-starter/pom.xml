@@ -45,5 +45,12 @@
             <version>0.1.5</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.lihaoyi/os-lib -->
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>os-lib_3</artifactId>
+            <version>0.11.4</version>
+        </dependency>
+
     </dependencies>
 </project>
