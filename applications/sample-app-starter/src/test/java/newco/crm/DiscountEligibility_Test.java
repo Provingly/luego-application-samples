@@ -21,7 +21,7 @@ import os.Path;
 import scala.Tuple2;
 import scala.util.Either;
 
-class capitalize_Test {
+class DiscountEligibility_Test {
   
     static LuegoRunner appRunner;
 
@@ -41,19 +41,25 @@ class capitalize_Test {
 
 
     @Test
-    void capitalize() {
+    void discountEligibility() {
         String parametersString = 
         """
-            { "s": "Hello" }     
+        { 
+            "request": {
+                "LGType_": "newco.crm.Request",
+                "customerName": "Jane",
+                "value": 120,
+                "products": []
+            }
+        }     
         """;
-
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.capitalize", 
+     
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.DiscountEligibility", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
-      assertEquals("Right((Known(value = HELLO, type = class java.lang.String),Text))", evalRes.toString());
       assertTrue(evalRes.toOption().nonEmpty());
-      assertEquals(evalRes.toOption().get()._1(), new Known("HELLO"));
-      assertEquals(evalRes.toOption().get()._2().toString(), "Text");
+      assertEquals(evalRes.toOption().get()._2().toString(), "newco.crm.Response");
+      assertEquals(evalRes.toOption().get()._1().toString(), "Known(value = Struct(type = newco.crm.Response, loc = res, members = eligibilityStatus = false, message = Hello JANE, value = 220), type = class luego.runtime.values.StructVal)");
     }
 }

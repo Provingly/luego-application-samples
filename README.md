@@ -33,6 +33,7 @@ If compilation is succesfull, you should have a file called luego-starter-app.zi
 mvn exec:java -Dexec.mainClass="runner.Main"
 
 ### Unit testing
+mvn compile test
 
 ### Deploying to Provingly Server
 
