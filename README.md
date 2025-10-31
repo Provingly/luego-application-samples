@@ -14,12 +14,18 @@ mvn install:install-file \
    -Dpackaging=jar \
    -DgeneratePom=true
 
+## Generating a Luego application project from scratch
+java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app generate
+
 
 ## Compiling and running an application
 - go to the starter app folder: `cd applications/sample-app-starter`
+
 - clean: 
 mvn exec:java -Dexec.mainClass="build_and_run.Main" \
   -Dexec.args="app clean"
+
+java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app clean
 
 - compile: 
 mvn exec:java -Dexec.mainClass="build_and_run.Main" \
