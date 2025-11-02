@@ -3,6 +3,7 @@ package runner;
 import java.nio.file.Paths;
 import java.util.*;
 
+import build_and_run.ExploratoryTestManager;
 import luego.build.application.LuegoAppBuilder;
 import luego.runtime.application.*;
 import luego.runtime.results.Result;
@@ -58,5 +59,17 @@ public class Main {
 
       System.out.println("evalRes = " + evalRes);
     }
+
+    String decisionModelParams = 
+        """
+        {
+          "request": {
+            "LGType_": "newco.crm.Request"
+          }
+        }
+        """;
+    ExploratoryTestManager etm = new ExploratoryTestManager(appRunner, "newco.crm.DiscountEligibility", language);
+    //etm.play(parameters)
+
   }
 }
