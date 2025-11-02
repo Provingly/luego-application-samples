@@ -39,12 +39,6 @@
             <scope>test</scope>
         </dependency> 
 
-        <dependency>
-            <groupId>provingly.io</groupId>
-            <artifactId>luego_devtools_3</artifactId>
-            <version>0.1.5</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/com.lihaoyi/os-lib -->
         <dependency>
             <groupId>com.lihaoyi</groupId>
@@ -52,5 +46,22 @@
             <version>0.11.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>provingly.io</groupId>
+            <artifactId>luego_devtools_3</artifactId>
+
+            <!-- <version>0.1.5</version> version used temporarily and publish directly in github under folder /tools/jars -->
+            
+            <!-- version published in gitlab -->
+            <version>1.1.11</version>
+        </dependency>
+
     </dependencies>
+
+    <repositories>
+    <repository>
+        <id>gitlab-maven</id>
+        <url>https://gitlab.com/groups/luego2-artifacts/-/packages/maven</url>
+    </repository>
+    </repositories>    
 </project>
