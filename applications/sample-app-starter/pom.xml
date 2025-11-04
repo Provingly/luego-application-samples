@@ -50,10 +50,11 @@
             <groupId>provingly.io</groupId>
             <artifactId>luego_devtools_3</artifactId>
 
-            <!-- <version>0.1.5</version> version used temporarily and publish directly in github under folder /tools/jars -->
+            <!--  version used temporarily and publish directly in github under folder /tools/jars -->
+            <version>0.1.5</version>
             
-            <!-- version published in gitlab -->
-            <version>1.1.11</version>
+            <!-- version published in gitlab
+            <version>1.1.11</version> -->
         </dependency>
 
     </dependencies>
