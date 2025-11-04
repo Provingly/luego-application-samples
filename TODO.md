@@ -7,7 +7,7 @@ TODO:
     = print coloured text to make developers' life easier
 
     CODING
-    = provide utility functions so that the java main and the JUnit test code is more readable
+    = provide utility functions so that the JUnit test code is more readable
 
     RUN/TEST
     = Improve ExploratoryTestManager to support all data types (collection types...)

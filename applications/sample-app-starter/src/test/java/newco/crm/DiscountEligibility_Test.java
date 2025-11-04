@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import luego.runtime.application.LuegoAppInfo;
 import luego.runtime.application.LuegoRunner;
-import luego.runtime.results.Result;
+import luego.runtime.results.*;
 import luego.runtime.values.PreEvaluationError;
 import luego.types.LGType;
 import scala.Tuple2;
@@ -46,7 +46,15 @@ class DiscountEligibility_Test {
 
       System.out.println("evalRes = " + evalRes);        
       assertTrue(evalRes.toOption().nonEmpty());
-      assertEquals(evalRes.toOption().get()._2().toString(), "newco.crm.Response");
-      assertEquals(evalRes.toOption().get()._1().toString(), "Known(value = Struct(type = newco.crm.Response, loc = res, members = eligibilityStatus = false, message = Hello JANE, value = 220), type = class luego.runtime.values.StructVal)");
+      assertEquals(ResultUtil.hasKnownValue(evalRes.toOption().get(), 
+        """
+        {
+            "LGType_": "newco.crm.Response",
+            "eligibilityStatus":false,
+            "message":"Hello JANE",
+            "value":220
+        }
+        """,
+        appRunner.dataModel()), scala.None$.MODULE$);
     }
 }

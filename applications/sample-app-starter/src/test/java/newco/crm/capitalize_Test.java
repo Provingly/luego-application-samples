@@ -10,6 +10,7 @@ import luego.runtime.application.LuegoAppInfo;
 import luego.runtime.application.LuegoRunner;
 import luego.runtime.results.Known;
 import luego.runtime.results.Result;
+import luego.runtime.results.ResultUtil;
 import luego.runtime.values.PreEvaluationError;
 import luego.types.LGType;
 import scala.Tuple2;
@@ -40,7 +41,11 @@ class capitalize_Test {
       System.out.println("evalRes = " + evalRes);        
       assertEquals("Right((Known(value = HELLO, type = class java.lang.String),Text))", evalRes.toString());
       assertTrue(evalRes.toOption().nonEmpty());
-      assertEquals(evalRes.toOption().get()._1(), new Known("HELLO"));
-      assertEquals(evalRes.toOption().get()._2().toString(), "Text");
+      assertEquals(ResultUtil.hasKnownValue(evalRes.toOption().get(), 
+        """
+        "HELLO"
+        """,
+        appRunner.dataModel()), scala.None$.MODULE$);
+
     }
 }
