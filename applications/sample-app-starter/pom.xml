@@ -49,20 +49,35 @@
         <dependency>
             <groupId>provingly.io</groupId>
             <artifactId>luego_devtools_3</artifactId>
-
-            <!--  version used temporarily and publish directly in github under folder /tools/jars -->
             <version>0.1.5</version>
-            
-            <!-- version published in gitlab
-            <version>1.1.11</version> -->
         </dependency>
+        <dependency>
+            <groupId>provingly.io</groupId>
+            <artifactId>luego_buildchain_3</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>provingly.io</groupId>
+            <artifactId>luego_runtime_3</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>provingly.io</groupId>
+            <artifactId>luego_common_3</artifactId>
+            <version>0.1.5</version>
+        </dependency>                
+
+     
 
     </dependencies>
-
+    
     <repositories>
-    <repository>
-        <id>gitlab-maven</id>
-        <url>https://gitlab.com/groups/luego2-artifacts/-/packages/maven</url>
-    </repository>
+        <repository>
+            <id>GitLab</id>
+            <name>GitLab</name>
+            <url>https://gitlab.com/api/v4/projects/75218486/packages/maven/</url>
+            <layout>default</layout>
+        </repository>
     </repositories>    
+
 </project>

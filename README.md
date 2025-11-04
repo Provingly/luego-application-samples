@@ -5,20 +5,9 @@
 - Java 21: set your JAVA_HOME so that it points to Java JDK21 or later
 If you need to install Java 21, please download and install it from https://adoptium.net/temurin/releases/?arch=any&version=21&os=any
 
-- install the provided Luego jar file into your local maven repository:
-```
-mvn install:install-file \
-   -Dfile=./tools/jars/luego_devtools-assembly-0.1.5.jar \
-   -DgroupId=provingly.io \
-   -DartifactId=luego_devtools_3 \
-   -Dversion=0.1.5 \
-   -Dpackaging=jar \
-   -DgeneratePom=true
-```
-
 ## Generating a Luego application project from scratch (not yet available)
 ```
-java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app generate
+mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app generate"
 ```
 
 ## Compiling and running an application
@@ -29,11 +18,11 @@ cd applications/sample-app-starter
 
 ### Cleaning 
 ```
-java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app clean
+mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app clean"
 ```
 ### Compiling and packaging   
 ```
-java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app compile
+mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app compile"
 ```
 
 If compilation is successful, the folder target/luego will contain the binary files for each functions/decision models and we will be ready to run Luego programs.
@@ -52,7 +41,7 @@ Reuse test data from your exploratory tests in the automated tests.
 
 ### Packaging   
 ```
-java -jar ../../tools/jars/luego_devtools-assembly-0.1.5.jar app package
+mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app package"
 ```
 
 If packaging is successful, you should have a file called luego-starter-app.zip in the folder target/luego. We will be ready to deploy our application to a Provingly server.

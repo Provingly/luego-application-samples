@@ -1,7 +1,18 @@
 TODO:
-= provide utility functions so that the java main and the JUnit test code is more readable
-- get the luego-dev-tools jar from gitlab thru Maven
-- show how to do BDD testing with Gherkin
+
+    BUILD
+    = get the luego-dev-tools jar from gitlab thru Maven
+    = one jar for Luego compiler + one jar for the Luego runtime
+    = improve compiler error messages
+    = print coloured text to make developers' life easier
+
+    CODING
+    = provide utility functions so that the java main and the JUnit test code is more readable
+
+    RUN/TEST
+    = Improve ExploratoryTestManager to support all data types (collection types...)
+    = Make it easy to reuse JSON payload created by the ExploratoryTestManager in automated tests
+    = improve runtime error messages
 
 DONE:
 x "Luego compile" should automatically clean
