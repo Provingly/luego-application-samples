@@ -38,8 +38,6 @@ class capitalize_Test {
       Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.capitalize", 
                                                                                          parametersString, "en");
 
-      System.out.println("evalRes = " + evalRes);        
-      assertEquals("Right((Known(value = HELLO, type = class java.lang.String),Text))", evalRes.toString());
       assertTrue(evalRes.toOption().nonEmpty());
       assertEquals(ResultUtil.hasKnownValue(evalRes.toOption().get(), 
         """

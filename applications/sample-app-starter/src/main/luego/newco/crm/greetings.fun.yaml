@@ -1,5 +1,5 @@
 ---
-# This example shows a simple function for which we could omit: imports, exposable, description and usedDecisions
+# This example shows a simple function for which we have omitted: imports, exposable, description and usedDecisions
 definition: >
   'Hello ' + s + '!'
 

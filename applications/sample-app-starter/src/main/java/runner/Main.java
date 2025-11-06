@@ -1,6 +1,5 @@
 package runner;
 
-import java.nio.file.Paths;
 import java.util.*;
 
 import luego.etest.ExploratoryTestManager;
@@ -8,7 +7,6 @@ import luego.runtime.application.*;
 import luego.runtime.results.Result;
 import luego.runtime.values.PreEvaluationError;
 import luego.types.LGType;
-//import os.*;
 import scala.Tuple2;
 import scala.util.Either;
 
@@ -55,8 +53,8 @@ public class Main {
 
     System.out.println("=====================================");
     System.out.println("Using the exploratory test tool");
-    ExploratoryTestManager etm = new ExploratoryTestManager(appRunner, "newco.crm.DiscountEligibility", language);
-    etm.play(
+    ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, "newco.crm.DiscountEligibility", language);
+    exploratoryTest.play(
         """
         {
           "request": {
