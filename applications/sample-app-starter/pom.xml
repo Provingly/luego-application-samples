@@ -14,6 +14,8 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
+
+        <luego.version>1.0.0-b3</luego.version>
     </properties>
 
     <build>
@@ -28,6 +30,63 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.6.2</version>
+                <executions> <!-- we configure several executions-->
+                    <execution>
+                        <id>luego-compiler</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>                        
+                        <configuration>
+                            <mainClass>builder.Main</mainClass>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>luego-runner</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>                        
+                        <configuration>
+                            <mainClass>runner.Main</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <executable>java</executable>
+
+                    <!-- optional
+                    <executable>java</executable>
+                    <workingDirectory>/tmp</workingDirectory>
+                    <arguments>
+                        <argument>-X</argument>
+                        <argument>myproject:dist</argument>
+                        ...
+                    </arguments>
+                    <environmentVariables>
+                        <LANG>en_US</LANG>
+                    </environmentVariables> -->
+                </configuration>                
+
+                <dependencies> <!-- needed for execution -->
+                    <dependency>
+                        <groupId>com.outr</groupId>
+                        <artifactId>scribe_3</artifactId>
+                        <version>3.17.0</version>
+                        <type>jar</type>
+                    </dependency>         
+                    <dependency>
+                        <groupId>com.outr</groupId>
+                        <artifactId>scribe-file_3</artifactId>
+                        <version>3.17.0</version>
+                        <type>jar</type>
+                    </dependency> 
+                </dependencies>                
+            </plugin>
+
         </plugins>
     </build>
 
@@ -39,37 +98,27 @@
             <scope>test</scope>
         </dependency> 
 
-        <!-- https://mvnrepository.com/artifact/com.lihaoyi/os-lib -->
-        <!--
         <dependency>
-            <groupId>com.lihaoyi</groupId>
-            <artifactId>os-lib_3</artifactId>
-            <version>0.11.4</version>
-        </dependency> -->
-
-        <dependency>
-            <groupId>provingly.io</groupId>
+            <groupId>io.provingly</groupId>
             <artifactId>luego_devtools_3</artifactId>
-            <version>0.1.5</version>
+            <version>${luego.version}</version>
         </dependency>
         <dependency>
-            <groupId>provingly.io</groupId>
+            <groupId>io.provingly</groupId>
             <artifactId>luego_buildchain_3</artifactId>
-            <version>0.1.5</version>
+            <version>${luego.version}</version>
         </dependency>
         <dependency>
-            <groupId>provingly.io</groupId>
+            <groupId>io.provingly</groupId>
             <artifactId>luego_runtime_3</artifactId>
-            <version>0.1.5</version>
+            <version>${luego.version}</version>
         </dependency>
         <dependency>
-            <groupId>provingly.io</groupId>
+            <groupId>io.provingly</groupId>
             <artifactId>luego_common_3</artifactId>
-            <version>0.1.5</version>
+            <version>${luego.version}</version>
         </dependency>                
-
-     
-
+                    
     </dependencies>
     
     <repositories>

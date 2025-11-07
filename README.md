@@ -6,6 +6,9 @@
 If you need to install Java 21, please download and install it from https://adoptium.net/temurin/releases/?arch=any&version=21&os=any
 
 ## Generating a Luego application project from scratch (not yet available)
+- copy the empty skeleton zip
+- unzip it
+
 ```
 mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app generate"
 ```
@@ -16,20 +19,30 @@ Go to the starter app folder:
 cd applications/sample-app-starter
 ```
 
-### Cleaning 
+### Cleaning the Luego app
 ```
-mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app clean"
+mvn exec:java@luego-compiler -Dexec.args="app clean"
 ```
-### Compiling and packaging   
+### Compiling the Luego app
+
 ```
-mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app compile"
+mvn exec:java@luego-compiler -Dexec.args="app compile"
+```
+
+The default log level of the compiler is Info. If you want the compiler to output more information, you can set the level to Trace as follows:
+```
+export LUEGOC_LOG_LEVEL="Trace"
+```
+You can switch back to the Info log level to get a clear output in the console.
+```
+export LUEGOC_LOG_LEVEL="Info"
 ```
 
 If compilation is successful, the folder target/luego will contain the binary files for each functions/decision models and we will be ready to run Luego programs.
 
 ### Running exploratory tests
 ```
-mvn exec:java -Dexec.mainClass="runner.Main"
+mvn exec:java@luego-runner
 ```
 
 ### Automated unit testing with JUnit
@@ -39,9 +52,9 @@ mvn test
 
 Reuse test data from your exploratory tests in the automated tests.
 
-### Packaging   
+### Packaging the Luego app
 ```
-mvn exec:java -Dexec.mainClass="builder.Main" -Dexec.args="app package"
+mvn exec:java@luego-compiler -Dexec.args="app package"
 ```
 
 If packaging is successful, you should have a file called luego-starter-app.zip in the folder target/luego. We will be ready to deploy our application to a Provingly server.
