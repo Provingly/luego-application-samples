@@ -15,7 +15,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <luego.version>1.0.0-b3</luego.version>
+        <luego.version>1.0.0-b6</luego.version>
     </properties>
 
     <build>
@@ -41,50 +41,33 @@
                             <goal>java</goal>
                         </goals>                        
                         <configuration>
-                            <mainClass>builder.Main</mainClass>
+                            <mainClass>luego.DevCLI</mainClass>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>luego-runner</id>
+                        <id>scenario-runner</id>
                         <goals>
                             <goal>java</goal>
                         </goals>                        
                         <configuration>
-                            <mainClass>runner.Main</mainClass>
+                            <mainClass>runners.ScenarioRunner</mainClass>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>luego-exploratory-tests</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>                        
+                        <configuration>
+                            <mainClass>runners.ExploratoryTestRunner</mainClass>
+                        </configuration>
+                    </execution>
+                    
                 </executions>
 
                 <configuration>
                     <executable>java</executable>
-
-                    <!-- optional
-                    <executable>java</executable>
-                    <workingDirectory>/tmp</workingDirectory>
-                    <arguments>
-                        <argument>-X</argument>
-                        <argument>myproject:dist</argument>
-                        ...
-                    </arguments>
-                    <environmentVariables>
-                        <LANG>en_US</LANG>
-                    </environmentVariables> -->
-                </configuration>                
-
-                <dependencies> <!-- needed for execution -->
-                    <dependency>
-                        <groupId>com.outr</groupId>
-                        <artifactId>scribe_3</artifactId>
-                        <version>3.17.0</version>
-                        <type>jar</type>
-                    </dependency>         
-                    <dependency>
-                        <groupId>com.outr</groupId>
-                        <artifactId>scribe-file_3</artifactId>
-                        <version>3.17.0</version>
-                        <type>jar</type>
-                    </dependency> 
-                </dependencies>                
+                </configuration>                             
             </plugin>
 
         </plugins>

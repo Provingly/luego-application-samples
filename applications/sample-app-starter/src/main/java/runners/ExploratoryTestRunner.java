@@ -1,4 +1,4 @@
-package runner;
+package runners;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ import luego.types.LGType;
 import scala.Tuple2;
 import scala.util.Either;
 
-public class Main {
+public class ExploratoryTestRunner {
 
   public record Scenario(String name, String decisionName, String parameters) {}
 
@@ -38,18 +38,9 @@ public class Main {
 
   static void main(String[] args) {
 
-    System.out.println("=====================================");
-    System.out.println("Getting a LuegoRunner");
     LuegoAppInfo appInfo = LuegoAppInfo.read(".");
     LuegoRunner appRunner = LuegoRunner.apply("./target/luego/app/" + appInfo.appId() + "/" + appInfo.appVersion());
     String language = "en";
-
-    System.out.println("=====================================");
-    System.out.println("Running some scenarios");
-    for (Scenario scenario: getScenarios()) {
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate(scenario.decisionName, scenario.parameters, language);
-      System.out.println("evalRes = " + evalRes);
-    }
 
     System.out.println("=====================================");
     System.out.println("Using the exploratory test tool");
