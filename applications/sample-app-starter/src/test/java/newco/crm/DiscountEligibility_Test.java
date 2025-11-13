@@ -57,4 +57,53 @@ class DiscountEligibility_Test {
         """,
         appRunner.dataModel()), scala.None$.MODULE$);
     }
+
+    @Test
+    void discountEligibility_IncompleteData() {
+        String parametersString = 
+        """
+        { 
+            "request": {
+                "LGType_": "newco.crm.Request"
+            }
+        }     
+        """;
+     
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.DiscountEligibility", 
+                                                                                         parametersString, "en");
+
+      System.out.println("evalRes = " + evalRes);        
+      assertTrue(evalRes.toOption().nonEmpty());
+      assertEquals(ResultUtil.hasMissingInfo(evalRes.toOption().get(), 
+        """
+        {
+            "type": "MissingData",
+            "elements": [
+                {
+                    "target": "request",
+                    "targetType": "newco.crm.Request",
+                    "member": "products",
+                    "memberType": "List[newco.crm.Product]",
+                    "kind": "has"
+                },
+                {
+                    "target": "request",
+                    "targetType": "newco.crm.Request",
+                    "member": "value",
+                    "memberType": "Integer",
+                    "kind": "has"
+                },
+                {
+                    "target": "request",
+                    "targetType": "newco.crm.Request",
+                    "member": "customerName",
+                    "memberType": "Text",
+                    "kind": "has"
+                }
+            ]
+        }
+        """,
+        appRunner.dataModel()), scala.None$.MODULE$);
+    }
+
 }

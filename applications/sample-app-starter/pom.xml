@@ -15,8 +15,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <luego.version>1.0.0-b6</luego.version>
-    </properties>
+        <luego.version>1.0.0-b10</luego.version>
+    </properties> 
 
     <build>
         <plugins>
@@ -50,7 +50,7 @@
                             <goal>java</goal>
                         </goals>                        
                         <configuration>
-                            <mainClass>runners.ScenarioRunner</mainClass>
+                            <mainClass>runners.MyScenarioRunner</mainClass>
                         </configuration>
                     </execution>
                     <execution>
