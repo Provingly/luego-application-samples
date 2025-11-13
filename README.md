@@ -1,4 +1,4 @@
-# Build and Run Sample Luego Applications
+# Build and Run Sample Luego Applications.
 
 ## Requirements
 - maven
