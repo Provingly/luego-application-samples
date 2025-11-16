@@ -34,7 +34,16 @@ public class MyScenarioRunner extends ScenarioRunner {
                           }
                         }"""
                   ),
-      new Scenario("Call Greetings", 
+      new Scenario("Call greetings with incomplete data", 
+                    "sample.greetings.greetings", 
+                        """
+                        {
+                          "the request": {
+                            "LGType_": "sample.greetings.Request"
+                          }
+                        }"""
+                  ),
+      new Scenario("Call Greetings2", 
                     "sample.greetings.Greetings2", 
                         """
                         {
@@ -46,6 +55,15 @@ public class MyScenarioRunner extends ScenarioRunner {
                               "name": "Joe",
                               "honorific": ["Mr"]                            
                             }  
+                          }
+                        }"""
+                  ),
+      new Scenario("Call Greetings2 with missing data", 
+                    "sample.greetings.Greetings2", 
+                        """
+                        {
+                          "request": {
+                            "LGType_": "sample.greetings.Request"
                           }
                         }"""
                   )
