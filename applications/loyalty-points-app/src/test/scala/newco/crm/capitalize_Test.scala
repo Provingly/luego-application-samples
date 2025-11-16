@@ -18,9 +18,9 @@ class capitalize_Test extends AnyFunSuite {
         assert(v == "HELLO")
     }
   }
-  test("Greetings OK") {
+  test("Hello OK") {
     val json = ujson.read(""" { "s": "World" }""").obj
-    val evalRes = appRunner.evaluate("newco.crm.greetings", json, language)
+    val evalRes = appRunner.evaluate("newco.crm.hello", json, language)
     evalRes match {
       case Left(error) => assert(false, "Unexpected error: " + error)
       case Right((Known(v), _)) =>

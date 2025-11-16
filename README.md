@@ -9,19 +9,17 @@ If you need to install Java 21, you can download and install it from https://ado
 Go to a folder containing a Luego application, for instance the 'sample-app-starter' application: 
 ```
 cd applications/sample-app-starter
+cd applications/loyalty-points-app
 ```
 
-### Clean the Luego application
-```
-mvn exec:java@luego-compiler -Dexec.args="app clean"
-```
 ### Compile the Luego application
-
 ```
 mvn exec:java@luego-compiler -Dexec.args="app compile"
 ```
 
 If compilation is successful, the folder target/luego will contain binary files for each function or decision model. We will then be ready to run Luego programs that use those functions and decision models.
+
+If you compile the Luego source again after a modification of the source code, the old compiled binary files will be automatically cleaned.
 
 The default log level of the compiler is Info. If you want the compiler to output more information, you can set the level to Trace as follows:
 ```

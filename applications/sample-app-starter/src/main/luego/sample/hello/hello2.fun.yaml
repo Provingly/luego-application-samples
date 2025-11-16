@@ -1,0 +1,10 @@
+---
+output: Text
+inputs:
+  - name: s
+    type: Text
+definition: >
+  'Hello ' + upper(s) + '!'
+
+imports:
+  - luego.text.*

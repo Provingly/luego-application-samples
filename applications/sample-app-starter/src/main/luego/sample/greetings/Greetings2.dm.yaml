@@ -1,0 +1,59 @@
+---
+imports: [ 'luego.text.*', 'luego.date.*' ]
+description: Determine greetings to say
+rootNode: 'Concatenate'
+
+graph:
+- node: 'Concatenate'
+  type: 'Compute'
+  output: 'sample.greetings.Response'
+  body: >
+    Response(message = `greeting text` + `honorific text` + the name of the person of `the request` + '!')
+
+  level: '0'
+  y: '0.5'
+  dependsOn: ['greeting text', 'honorific text', 'request']
+
+- node: 'greeting text'
+  type: 'Compute'
+  output: 'Text'
+  body: >
+    depending on the honorific of the person of `the request` {
+      case None => 'Hello'
+      case Some(_) => {
+        let h = hour(the dateTime of `the request`);
+
+        (if h < 12 then 
+          'Good morning'
+        elif h < 18 then 
+          'Good afternoon'
+        elif h < 21 then 
+          'Good evening'
+        else 
+          'Good night') + ' ';
+      }
+    }
+
+  level: '1'
+  y: '0.33'
+  dependsOn: ['request']
+
+- node: 'honorific text'
+  type: 'Compute'
+  output: 'Text'
+  body: >
+    depending on the honorific of the person of `the request` {
+      case None => ' '
+      case Some(h) => h + ' '
+    }
+
+  level: '1'
+  y: '0.66'
+  dependsOn: ['request']
+
+- node: 'request'
+  alias: 'the request'
+  type: 'Info'
+  output: 'sample.greetings.Request'
+  level: '2'
+  y: '0.5'

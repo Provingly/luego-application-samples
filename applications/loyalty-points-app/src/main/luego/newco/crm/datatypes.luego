@@ -1,0 +1,26 @@
+package newco.crm
+
+//-----------------------
+// Request
+//-----------------------
+Request is a record
+    - with one value: Integer
+    - with one customerName: Text
+    - with zero or one loyaltyLevel: LoyaltyLevel
+    - with zero or more products (product): Product
+
+LoyaltyLevel is an ordered enumeration with domain:
+    'Silver', 'Gold', 'Platinum'
+
+Product is a record
+    - with one id: Text
+    - with one price: Number
+
+
+//-----------------------
+// Response
+//-----------------------
+Response is a record
+    - with one eligibilityStatus: Boolean
+    - with one value: Integer
+    - with one message: Text

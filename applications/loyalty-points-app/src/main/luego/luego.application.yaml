@@ -1,0 +1,26 @@
+---
+domain: Samples
+appId: luego-loyalty-app
+groupId: io.provingly
+appVersion: 1.0.0
+
+provider:
+  name: Provingly
+  email: info@provingly.io
+
+lastUpdate: 2025-07-11
+luegoVersion: 1.0.0
+dependencies: []
+
+localizedInfo:
+  - label: Loyalty Sample App
+    description: A sample app to compute loyalty points
+    tags: [ 'sample', 'loyalty' ]
+    lang: en
+    country:
+
+  - label: Loyalty Sample App
+    description: Un exemple d'application pour calculer des points pour un programme de fidélisation
+    tags: [ 'sample', 'fidélisation' ]
+    lang: fr
+    country:

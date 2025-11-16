@@ -1,0 +1,26 @@
+package sample.greetings
+
+//-----------------------
+// Request
+//-----------------------
+Request is a record
+    - with one person: Person
+    - with one dateTime: DateTime
+
+Person is a record
+    - with one name: Text
+    - with zero or one honorific: Honorific
+
+Honorific is an enumeration with domain:
+    'Mr', 'Mrs', 'Miss', 'Ms', 'Mx', 'Sir', 'Dame', 'Dr', 'Cllr', 'Lady', 'Lord'
+
+
+//-----------------------
+// Response
+//-----------------------
+Response is a record
+    - with one message: Text
+    - with one formality: FormalityLevel
+
+FormalityLevel is an enumeration with domain:
+    'Informal', 'Very Informal', 'Neutral', 'Formal' 

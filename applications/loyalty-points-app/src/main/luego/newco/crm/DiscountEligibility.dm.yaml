@@ -10,7 +10,7 @@ graph:
   body: >
     Response(eligibilityStatus = `criteria 1` and `criteria 2`, 
          value = 100 + the value of `the request`,
-         message = 'Hello ' + capitalize(the customerName of `the request`))
+         message = 'Hello ' + upper(the customerName of `the request`))
 
   level: '0'
   y: '0.5'

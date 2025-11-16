@@ -7,42 +7,45 @@ public class MyScenarioRunner extends ScenarioRunner {
 
   public Scenario[] getScenarios() {
     Scenario[] scenarios = {
-      new Scenario("capitalize 'Hello'", 
-                    "newco.crm.capitalize", 
+      new Scenario("Say hello", 
+                    "sample.hello.hello", 
                         """
-                        { "s": "Hello" }
+                        { "s": "Joe" }
                         """
                   ),
-      new Scenario("Call a decision model with complete info", 
-                    "newco.crm.DiscountEligibility", 
+      new Scenario("Say hello 2", 
+                    "sample.hello.hello2", 
+                        """
+                        { "s": "Joe" }
+                        """
+                  ),
+      new Scenario("Call greetings", 
+                    "sample.greetings.greetings", 
                         """
                         {
-                          "request": {
-                            "LGType_": "newco.crm.Request",
-                            "customerName": "Jane",
-                            "value": 120,
-                            "products": []
+                          "the request": {
+                            "LGType_": "sample.greetings.Request",
+                            "dateTime": "2023-11-06T11:00:00",
+                            "person": {
+                              "LGType_": "sample.greetings.Person",
+                              "name": "Smith",
+                              "honorific": []                            
+                            }  
                           }
                         }"""
                   ),
-      new Scenario("Call a decision model with missing info", 
-                    "newco.crm.DiscountEligibility", 
+      new Scenario("Call Greetings", 
+                    "sample.greetings.Greetings2", 
                         """
                         {
                           "request": {
-                            "LGType_": "newco.crm.Request",
-                            "products": []
-                          }
-                        }"""
-                  ),
-      new Scenario("Call a decision model with erroneous input", 
-                    "newco.crm.DiscountEligibility", 
-                        """
-                        {
-                          "request": {
-                            "LGType_": "newco.crm.Request",
-                            "customerName": 120,
-                            "products": []
+                            "LGType_": "sample.greetings.Request",
+                            "dateTime": "2023-11-06T13:00:00",
+                            "person": {
+                              "LGType_": "sample.greetings.Person",
+                              "name": "Joe",
+                              "honorific": ["Mr"]                            
+                            }  
                           }
                         }"""
                   )

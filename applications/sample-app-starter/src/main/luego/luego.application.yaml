@@ -9,7 +9,7 @@ provider:
   email: info@provingly.io
 
 lastUpdate: 2025-07-11
-luegoVersion: 0.36.0
+luegoVersion: 1.0.0
 dependencies: []
 
 localizedInfo:
