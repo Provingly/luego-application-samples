@@ -4,7 +4,6 @@ package newco.crm
 // Request
 //-----------------------
 Request is a record
-    - with one value: Integer
     - with one customerName: Text
     - with zero or one loyaltyLevel: LoyaltyLevel
     - with zero or more products (product): Product
@@ -21,6 +20,6 @@ Product is a record
 // Response
 //-----------------------
 Response is a record
-    - with one eligibilityStatus: Boolean
-    - with one value: Integer
+    - with one discount: Number                     // discount applicable to the shopping cart
+    - with one loyaltyPointIncrement: Integer
     - with one message: Text

@@ -66,7 +66,7 @@ class StarterApp_DiscountEligibility_Test extends AnyFunSuite with BeforeAndAfte
       case Right((Known(v), t)) =>
         val responseJSON = vw.toJSON(v, t)
         assert(responseJSON ==
-          """{"LGType_":"newco.crm.Response","eligibilityStatus":false,"message":"Hello JANE","value":220}""")
+          """{"LGType_":"newco.crm.Response","message":"Hello JANE","value":220}""")
     }
   }
 
@@ -96,7 +96,7 @@ class StarterApp_DiscountEligibility_Test extends AnyFunSuite with BeforeAndAfte
       case Right((Known(v), t)) =>
         val responseJSON = vw.toJSON(v, t)
         assert(responseJSON ==
-          """{"LGType_":"newco.crm.Response","eligibilityStatus":true,"message":"Hello JOHN","value":220}""")
+          """{"LGType_":"newco.crm.Response","message":"Hello JOHN","value":220}""")
     }
   }
 

@@ -13,11 +13,13 @@ public class ExploratoryTestRunner {
 
     System.out.println("=====================================");
     System.out.println("Using the exploratory test tool");
-    ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, "newco.crm.DiscountEligibility", language);
+    String model = "newco.crm.FDiscountAndPoints";
+    //String model = "newco.crm.DM_DiscountAndPoints";
+    ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, model , language);
     exploratoryTest.play(
         """
         {
-          "request": {
+          "the request": {
             "LGType_": "newco.crm.Request"
           }
         }

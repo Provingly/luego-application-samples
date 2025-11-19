@@ -1,0 +1,37 @@
+---
+imports:
+  - luego.text.*
+  - luego.math.*
+
+exposable: true
+output: 'newco.crm.Response'
+inputs:
+  - name: the request
+    type: 'newco.crm.Request'
+definition: >
+  {
+    // If you purchased at least 50€, you get a 1% discount with a maximum discoutn of 10€
+    let discount = {
+      let sum = (`the request`.products map (p => p.price)).sum;
+      if sum >= 50.0
+      then min(sum * 0.01, 10.0)
+      else 0.0;
+    };
+
+    let new_points = depending on the loyaltyLevel of `the request` {
+      case None => 0.0
+      case Some(level) => {
+        let sum : Number = (`the request`.products map (p => p.price)).sum;
+        depending on level {
+          case `LoyaltyLevel.Silver` => min(sum * 0.01, 30.0)
+          case `LoyaltyLevel.Gold` => min(sum * 0.015, 40.0)
+          case `LoyaltyLevel.Platinum` => min(sum * 0.02, 50.0)
+        };
+      }
+    };
+
+    Response(
+         discount = discount,
+         loyaltyPointIncrement = floorInt(new_points),
+         message = 'Hello ' + the customerName of `the request`);
+  }

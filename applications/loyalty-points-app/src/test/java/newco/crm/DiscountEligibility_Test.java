@@ -50,7 +50,6 @@ class DiscountEligibility_Test {
         """
         {
             "LGType_": "newco.crm.Response",
-            "eligibilityStatus":false,
             "message":"Hello JANE",
             "value":220
         }

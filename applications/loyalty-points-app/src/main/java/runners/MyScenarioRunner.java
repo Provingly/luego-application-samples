@@ -7,17 +7,11 @@ public class MyScenarioRunner extends ScenarioRunner {
 
   public Scenario[] getScenarios() {
     Scenario[] scenarios = {
-      new Scenario("capitalize 'Hello'", 
-                    "newco.crm.capitalize", 
-                        """
-                        { "s": "Hello" }
-                        """
-                  ),
       new Scenario("Call a decision model with complete info", 
-                    "newco.crm.DiscountEligibility", 
+                    "newco.crm.FDiscountAndPoints", 
                         """
                         {
-                          "request": {
+                          "the request": {
                             "LGType_": "newco.crm.Request",
                             "customerName": "Jane",
                             "value": 120,
@@ -26,20 +20,20 @@ public class MyScenarioRunner extends ScenarioRunner {
                         }"""
                   ),
       new Scenario("Call a decision model with missing info", 
-                    "newco.crm.DiscountEligibility", 
+                    "newco.crm.FDiscountAndPoints", 
                         """
                         {
-                          "request": {
+                          "the request": {
                             "LGType_": "newco.crm.Request",
                             "products": []
                           }
                         }"""
                   ),
       new Scenario("Call a decision model with erroneous input", 
-                    "newco.crm.DiscountEligibility", 
+                    "newco.crm.FDiscountAndPoints", 
                         """
                         {
-                          "request": {
+                          "the request": {
                             "LGType_": "newco.crm.Request",
                             "customerName": 120,
                             "products": []
