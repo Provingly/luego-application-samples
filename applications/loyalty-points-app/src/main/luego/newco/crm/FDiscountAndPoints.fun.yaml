@@ -19,19 +19,20 @@ definition: >
     };
 
     let new_points = depending on the loyaltyLevel of `the request` {
-      case None => 0.0
+      case None => 0
       case Some(level) => {
         let sum : Number = (`the request`.products map (p => p.price)).sum;
-        depending on level {
+        let nump = depending on level {
           case `LoyaltyLevel.Silver` => min(sum * 0.01, 30.0)
           case `LoyaltyLevel.Gold` => min(sum * 0.015, 40.0)
           case `LoyaltyLevel.Platinum` => min(sum * 0.02, 50.0)
         };
+        floorInt(nump);
       }
     };
 
     Response(
          discount = discount,
-         loyaltyPointIncrement = floorInt(new_points),
+         loyaltyPointIncrement = new_points,
          message = 'Hello ' + the customerName of `the request`);
   }

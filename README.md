@@ -23,11 +23,7 @@ If you compile the Luego source again after a modification of the source code, t
 
 The default log level of the compiler is Info. If you want the compiler to output more information, you can set the level to Trace as follows:
 ```
-export LUEGOC_LOG_LEVEL="Trace"
-```
-You can then switch back to the Info log level to get a clear output in the console.
-```
-export LUEGOC_LOG_LEVEL="Info"
+mvn exec:java@luego-compiler -Dexec.args="app compile --logLevel=Trace"
 ```
 
 ### Running some scenarios
