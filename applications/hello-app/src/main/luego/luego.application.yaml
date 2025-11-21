@@ -1,0 +1,26 @@
+---
+domain: Samples
+appId: luego-hello-app
+groupId: io.provingly
+appVersion: 1.0.0
+
+provider:
+  name: Provingly
+  email: info@provingly.io
+
+lastUpdate: 2025-07-11
+luegoVersion: 1.0.0
+dependencies: []
+
+localizedInfo:
+  - label: Hello App
+    description: A sample app to introduce the Luego language
+    tags: [ 'sample', 'hello' ]
+    lang: en
+    country:
+
+  - label: Luego Starter App
+    description: Un exemple pour introduire le langage Luego
+    tags: [ 'sample', 'hello' ]
+    lang: fr
+    country:

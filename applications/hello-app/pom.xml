@@ -15,7 +15,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <luego.version>1.0.0-b14</luego.version>
+        <luego.version>1.0.0-b15</luego.version>
     </properties> 
 
     <build>

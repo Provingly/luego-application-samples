@@ -18,9 +18,3 @@ localizedInfo:
     tags: [ 'sample', 'starter' ]
     lang: en
     country:
-
-  - label: Luego Starter App
-    description: Un exemple pour accélérer vos développements d'applications Luego
-    tags: [ 'sample', 'starter' ]
-    lang: fr
-    country:

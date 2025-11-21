@@ -1,0 +1,33 @@
+---
+imports: [ 'luego.text.*' ]
+description: Determine response
+rootNode: 'GenerateResponse'
+
+graph:
+- node: 'GenerateResponse'
+  type: 'Compute'
+  output: 'sample.greetings.Response'
+  body: >
+    Response(message = `intermediate result`)
+
+  level: '0'
+  y: '0.5'
+  dependsOn: ['intermediate result']
+
+
+- node: 'intermediate result'
+  type: 'Compute'
+  output: 'Text'
+  body: >
+    upper(the message of `the request`)
+
+  level: '1'
+  y: '0.66'
+  dependsOn: ['request']
+
+- node: 'request'
+  alias: 'the request'
+  type: 'Info'
+  output: 'sample.greetings.Request'
+  level: '2'
+  y: '0.5'
