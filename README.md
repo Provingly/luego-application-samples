@@ -5,11 +5,18 @@
 - Java 21: set your JAVA_HOME so that it points to Java JDK21 or later
 If you need to install Java 21, you can download and install it from https://adoptium.net/temurin/releases/?arch=any&version=21&os=any
 
-## Compiling and running an application
+## Compiling the java source code
+Run the following commands to compile the java source code of all the modules contained in the folder 'applications'.
+```
+cd applications
+mvn clean
+mvn compile
+```
+
+## Compiling the Luego source code and running an application
 Go to a folder containing a Luego application, for instance the 'sample-app-starter' application: 
 ```
-cd applications/sample-app-starter
-cd applications/loyalty-points-app
+cd sample-app-starter
 ```
 
 ### Compile the Luego application
@@ -70,6 +77,11 @@ If packaging is successful, you should have an archive called luego-starter-app.
 - adapt it
 
 or use the Luego app generation tool
+
+## Check the version of the Luego compiler and runtime
+```
+mvn exec:java@luego-compiler -Dexec.args="app version"
+```
 
 ## Documentation of the Luego programming language and the Provingly technology
 Visit https://docs.provingly.io
