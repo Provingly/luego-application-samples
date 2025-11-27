@@ -14,7 +14,7 @@ import luego.types.LGType;
 import scala.Tuple2;
 import scala.util.Either;
 
-class Greetings_Test {
+class GenerateResponse2_Test {
   
     static LuegoRunner appRunner;
 
@@ -28,22 +28,18 @@ class Greetings_Test {
 
 
     @Test
-    void Greetings() {
+    void GenerateResponse2() {
         String parametersString = 
         """
         { 
-            "the request": {
+            "request": {
                 "LGType_": "sample.greetings.Request",
-                "person": {
-                    "LGType_": "sample.greetings.Person",
-                    "name": "Jane",
-                    "honorific": []
-                }
+                "message": "hello"
             }
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.Greetings", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.GenerateResponse2", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -52,24 +48,24 @@ class Greetings_Test {
         """
         {
             "LGType_": "sample.greetings.Response",
-            "message":"Hello Jane!"
+            "message":"HELLO"
         }
         """,
         appRunner.dataModel()), scala.None$.MODULE$);
     }
 
     @Test
-    void Greetings_IncompleteData() {
+    void GenerateResponse2_IncompleteData() {
         String parametersString = 
         """
         { 
-            "the request": {
+            "request": {
                 "LGType_": "sample.greetings.Request"
             }
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.Greetings", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.GenerateResponse2", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -78,14 +74,12 @@ class Greetings_Test {
         """
         {
           "type":"MissingData",
-          "elements":[
-            {
-              "target":"the request",
-              "targetType":"sample.greetings.Request",
-              "member":"person",
-              "memberType":"sample.greetings.Person",
-              "kind":"has"
-            }
+          "elements":[{
+            "target":"request",
+            "targetType":"sample.greetings.Request",
+            "member":"message",
+            "memberType":"Text",
+            "kind":"has"}
           ]
         }
         """,

@@ -32,16 +32,16 @@ class Fun_discountEligibility_Test {
         String parametersString = 
         """
         { 
-            "request": {
+            "the request": {
                 "LGType_": "newco.crm.Request",
                 "customerName": "Jane",
-                "value": 120,
+                "loyaltyLevel": [ "Gold" ],
                 "products": []
             }
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.discountEligibility", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.FDiscountAndPoints", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -49,9 +49,10 @@ class Fun_discountEligibility_Test {
       assertEquals(ResultUtil.hasKnownValue(evalRes.toOption().get(), 
         """
         {
-            "LGType_": "newco.crm.Response",
-            "message":"Hello JANE",
-            "value":220
+          "LGType_":"newco.crm.Response",
+          "discount":0.0,
+          "message":"Hello Jane",
+          "loyaltyPointIncrement":0
         }
         """,
         appRunner.dataModel()), scala.None$.MODULE$);

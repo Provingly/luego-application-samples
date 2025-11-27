@@ -10,7 +10,6 @@
         <module>starter-app</module>
         <module>hello-app</module>
         <module>loyalty-points-app</module>
-
     </modules>
 
     <properties>
@@ -67,6 +66,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>  
     

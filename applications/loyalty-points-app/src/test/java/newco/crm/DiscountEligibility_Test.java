@@ -31,17 +31,17 @@ class DiscountEligibility_Test {
     void discountEligibility() {
         String parametersString = 
         """
-        { 
-            "request": {
-                "LGType_": "newco.crm.Request",
-                "customerName": "Jane",
-                "value": 120,
-                "products": []
-            }
-        }     
+        {
+        "request": {
+            "LGType_": "newco.crm.Request",
+            "products": [],
+            "loyaltyLevel": [],
+            "customerName": "Jane"
+        }
+        } 
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.DiscountEligibility", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.DM_DiscountAndPoints", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -50,8 +50,9 @@ class DiscountEligibility_Test {
         """
         {
             "LGType_": "newco.crm.Response",
-            "message":"Hello JANE",
-            "value":220
+            "discount": 0,
+            "message": "Hello Jane",
+            "loyaltyPointIncrement": 0
         }
         """,
         appRunner.dataModel()), scala.None$.MODULE$);
@@ -68,7 +69,7 @@ class DiscountEligibility_Test {
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.DiscountEligibility", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("newco.crm.DM_DiscountAndPoints", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -76,30 +77,12 @@ class DiscountEligibility_Test {
       assertEquals(ResultUtil.hasMissingInfo(evalRes.toOption().get(), 
         """
         {
-            "type": "MissingData",
-            "elements": [
-                {
-                    "target": "request",
-                    "targetType": "newco.crm.Request",
-                    "member": "products",
-                    "memberType": "List[newco.crm.Product]",
-                    "kind": "has"
-                },
-                {
-                    "target": "request",
-                    "targetType": "newco.crm.Request",
-                    "member": "value",
-                    "memberType": "Integer",
-                    "kind": "has"
-                },
-                {
-                    "target": "request",
-                    "targetType": "newco.crm.Request",
-                    "member": "customerName",
-                    "memberType": "Text",
-                    "kind": "has"
-                }
-            ]
+          "type":"MissingData",
+          "elements":[
+            {"target":"request","targetType":"newco.crm.Request","member":"products","memberType":"List[newco.crm.Product]","kind":"has"},
+            {"target":"request","targetType":"newco.crm.Request","member":"loyaltyLevel","memberType":"Option[newco.crm.LoyaltyLevel]","kind":"has"},
+            {"target":"request","targetType":"newco.crm.Request","member":"customerName","memberType":"Text","kind":"has"}
+          ]
         }
         """,
         appRunner.dataModel()), scala.None$.MODULE$);
