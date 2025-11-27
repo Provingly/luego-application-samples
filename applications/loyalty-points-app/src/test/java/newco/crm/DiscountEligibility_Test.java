@@ -50,7 +50,7 @@ class DiscountEligibility_Test {
         """
         {
             "LGType_": "newco.crm.Response",
-            "discount": 0,
+            "discount": 0.0,
             "message": "Hello Jane",
             "loyaltyPointIncrement": 0
         }
