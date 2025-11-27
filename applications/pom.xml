@@ -19,7 +19,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <luego.version>1.0.0-b21</luego.version>
+        <luego.version>1.0.0-b22</luego.version>
     </properties>
 
 

@@ -1,5 +1,4 @@
 RUN/TEST
-= Fix issue with 
 = Improve ExploratoryTestManager to support all data types (collection types...)
 = Make it easy to reuse JSON payload created by the ExploratoryTestManager in automated tests
 = Improve runtime error messages
