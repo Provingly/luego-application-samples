@@ -24,18 +24,28 @@
                 </configuration>
             </plugin>
 
+            <!-- See article https://zetcode.com/maven/exec-plugin/ -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.2</version>
+                <configuration>
+                    <executable>java</executable>
+                </configuration>
                 <executions>
                     <execution>
                         <id>luego-compiler</id>
+                        <!--<phase>compile</phase>  will be triggered when running 'mvn compile' at the top level -->
                         <goals>
                             <goal>java</goal>
                         </goals>                        
                         <configuration>
                             <mainClass>luego.DevCLI</mainClass>
+                            <workingDirectory>${project.basedir}/starter-app</workingDirectory>    
+                            <arguments>
+                                <argument>app</argument>
+                                <argument>compile</argument>
+                            </arguments>                            
                         </configuration>
                     </execution>
                     <execution>
@@ -57,11 +67,7 @@
                         </configuration>
                     </execution>
                     
-                </executions>
-
-                <configuration>
-                    <executable>java</executable>
-                </configuration>                             
+                </executions>                           
             </plugin>
 
         </plugins>
