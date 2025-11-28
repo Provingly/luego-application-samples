@@ -1,0 +1,12 @@
+---
+imports: []
+
+exposable: true
+output: List[Text]
+inputs:
+  - name: the request
+    type: 'sample.banking.Request'
+definition: >
+  {
+    [];
+  }

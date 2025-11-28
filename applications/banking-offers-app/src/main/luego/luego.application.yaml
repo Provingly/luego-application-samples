@@ -1,0 +1,20 @@
+---
+domain: Samples
+appId: eligibility-and-pricing-app
+groupId: io.provingly
+appVersion: 1.0.0
+
+provider:
+  name: Provingly
+  email: info@provingly.io
+
+lastUpdate: 2025-07-11
+luegoVersion: 1.0.0
+dependencies: []
+
+localizedInfo:
+  - label: Luego Eligibility and Pricing App
+    description: A sample to show how to organize decisions in multiple folders
+    tags: [ 'sample', 'eligibility', 'pricing' ]
+    lang: en
+    country:

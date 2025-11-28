@@ -1,0 +1,14 @@
+---
+imports:
+  - luego.text.*
+
+exposable: true
+output: 'sample.starter.Response'
+inputs:
+  - name: the request
+    type: 'sample.starter.Request'
+definition: >
+  {
+    let m = upper(the message of `the request`);
+    Response(message = m);
+  }

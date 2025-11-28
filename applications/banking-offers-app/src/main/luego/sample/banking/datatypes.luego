@@ -1,0 +1,52 @@
+package sample.banking
+
+//-----------------------
+// Request
+//-----------------------
+Request is a record
+    - with one customer: Person
+    - with one date: Date
+    - with one products: NEList[Product]
+
+Person is a record
+    - with one dateOfBirth: Date
+    - with one annualIncome: BigDecimal
+    - with zero or one spouse: Person
+    - with zero or more children (child): Person
+
+//-----------------------
+// Products
+//-----------------------
+Product is a record
+    - with one contractDate: Date
+
+Account is a Product
+CurrentAccount is an Account
+SavingsAccount is an Account
+
+Credit is a Product
+MortgageLoan is a Credit
+ConsumerLoan is a Credit
+
+Insurance is a Product
+CarInsurance is an Insurance
+HouseInsurance is an Insurance
+LifeInsurance is an Insurance
+PublicLiabilityInsurance is an Insurance
+
+//-----------------------
+// Response
+//-----------------------
+Response is a record
+
+InvalidRequest is a Response
+    - with one or more errors (error): Text
+
+DiscountResult is a Response
+
+NoDiscount is a DiscountResult
+    - with one or more reasons (reason): Text
+
+SpecialPriceOffer is a DiscountResult
+    - with one percentagDiscount: Number
+    - with one validUntil: Date

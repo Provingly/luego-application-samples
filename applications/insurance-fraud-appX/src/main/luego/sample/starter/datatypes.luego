@@ -1,0 +1,14 @@
+package sample.starter
+
+//-----------------------
+// Request
+//-----------------------
+Request is a record
+    - with one message: Text
+
+//-----------------------
+// Response
+//-----------------------
+Response is a record
+    - with one message: Text
+

@@ -1,0 +1,25 @@
+---
+imports:
+  - luego.text.*
+  - sample.banking.validation.*
+  - sample.banking.eligibility.*
+  - sample.banking.offers.*
+
+exposable: true
+output: 'sample.banking.Response'
+inputs:
+  - name: the request
+    type: 'sample.banking.Request'
+definition: >
+  {
+    let errors = ValidateRequest(`the request`);
+    if errors.nonEmpty
+      InvalidRequest(errors)
+    else {
+      let rejections = AssessEligibility(`the request`);
+      if rejections.nonEmpty
+        NoDiscount(rejections)
+      else
+        SpecialPriceOffer(`the request`);
+    };
+  }

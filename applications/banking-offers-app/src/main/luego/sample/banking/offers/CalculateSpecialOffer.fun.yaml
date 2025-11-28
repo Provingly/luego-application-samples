@@ -1,0 +1,14 @@
+---
+imports:
+  - luego.date.*
+
+exposable: true
+output: 'sample.banking.SpecialPriceOffer'
+inputs:
+  - name: the request
+    type: 'sample.banking.Request'
+definition: >
+  {
+    SpecialPriceOffer(percentage = 0.10, 
+                      validUntil = plusDays(the date of `the request`, 30));
+  }
