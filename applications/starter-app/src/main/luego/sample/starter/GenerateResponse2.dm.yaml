@@ -6,7 +6,7 @@ rootNode: 'GenerateResponse'
 graph:
 - node: 'GenerateResponse'
   type: 'Compute'
-  output: 'sample.greetings.Response'
+  output: 'sample.starter.Response'
   body: >
     Response(message = `intermediate result`)
 
@@ -28,6 +28,6 @@ graph:
 - node: 'request'
   alias: 'the request'
   type: 'Info'
-  output: 'sample.greetings.Request'
+  output: 'sample.starter.Request'
   level: '2'
   y: '0.5'

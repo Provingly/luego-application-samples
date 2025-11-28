@@ -14,7 +14,7 @@ import luego.types.LGType;
 import scala.Tuple2;
 import scala.util.Either;
 
-class Greetings_Test {
+class Greetings2_Test {
   
     static LuegoRunner appRunner;
 
@@ -28,11 +28,11 @@ class Greetings_Test {
 
 
     @Test
-    void Greetings() {
+    void Greetings2() {
         String parametersString = 
         """
         { 
-            "the request": {
+            "request": {
                 "LGType_": "sample.greetings.Request",
                 "person": {
                     "LGType_": "sample.greetings.Person",
@@ -43,7 +43,7 @@ class Greetings_Test {
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.Greetings", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.Greetings2", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -59,17 +59,20 @@ class Greetings_Test {
     }
 
     @Test
-    void Greetings_IncompleteData() {
+    void Greetings2_IncompleteData() {
         String parametersString = 
         """
         { 
-            "the request": {
-                "LGType_": "sample.greetings.Request"
+            "request": {
+                "LGType_": "sample.greetings.Request",
+                "person": {
+                  "LGType_": "sample.greetings.Person"
+                }
             }
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.Greetings", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.Greetings2", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -78,12 +81,26 @@ class Greetings_Test {
         """
         {
           "type":"MissingData",
-          "elements":[
+          "elements": [
             {
-              "target":"the request",
-              "targetType":"sample.greetings.Request",
-              "member":"person",
-              "memberType":"sample.greetings.Person",
+              "target":"request.person",
+              "targetType":"sample.greetings.Person",
+              "member":"honorific",
+              "memberType":"Option[sample.greetings.Honorific]",
+              "kind":"has"
+            },
+            {
+              "target":"request.person",
+              "targetType":"sample.greetings.Person",
+              "member":"honorific",
+              "memberType":"Option[sample.greetings.Honorific]",
+              "kind":"has"
+            },
+            {
+              "target":"request.person",
+              "targetType":"sample.greetings.Person",
+              "member":"name",
+              "memberType":"Text",
               "kind":"has"
             }
           ]

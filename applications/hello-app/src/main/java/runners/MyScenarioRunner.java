@@ -7,20 +7,20 @@ public class MyScenarioRunner extends ScenarioRunner {
 
   public Scenario[] getScenarios() {
     Scenario[] scenarios = {
-      new Scenario("Say hello", 
-                    "sample.hello.hello", 
+      new Scenario("Call Hello", 
+                    "sample.hello.Hello", 
                         """
                         { "s": "Joe" }
                         """
                   ),
-      new Scenario("Say hello 2", 
-                    "sample.hello.hello2", 
+      new Scenario("Call HelloUpper", 
+                    "sample.hello.HelloUpper", 
                         """
                         { "s": "Joe" }
                         """
                   ),
-      new Scenario("Call greetings", 
-                    "sample.greetings.greetings", 
+      new Scenario("Call Greetings1", 
+                    "sample.greetings.Greetings1", 
                         """
                         {
                           "the request": {
@@ -34,8 +34,8 @@ public class MyScenarioRunner extends ScenarioRunner {
                           }
                         }"""
                   ),
-      new Scenario("Call greetings with incomplete data", 
-                    "sample.greetings.greetings", 
+      new Scenario("Call Greetings1 with incomplete data", 
+                    "sample.greetings.Greetings1", 
                         """
                         {
                           "the request": {

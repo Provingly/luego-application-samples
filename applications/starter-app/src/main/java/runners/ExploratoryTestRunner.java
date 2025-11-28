@@ -13,12 +13,12 @@ public class ExploratoryTestRunner {
 
     System.out.println("=====================================");
     System.out.println("Using the exploratory test tool");
-    ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, "sample.greetings.generateResponse", language);
+    ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, "sample.starter.GenerateResponse1", language);
     exploratoryTest.play(
         """
         {
           "the request": {
-            "LGType_": "sample.greetings.Request"
+            "LGType_": "sample.starter.Request"
           }
         }
         """

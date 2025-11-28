@@ -14,7 +14,7 @@ import luego.types.LGType;
 import scala.Tuple2;
 import scala.util.Either;
 
-class Fun_greetings_Test {
+class GenerateResponse1_Test {
   
     static LuegoRunner appRunner;
 
@@ -28,23 +28,18 @@ class Fun_greetings_Test {
 
 
     @Test
-    void greetings() {
+    void GenerateResponse1() {
         String parametersString = 
         """
         { 
             "the request": {
-                "LGType_": "sample.greetings.Request",
-                "dateTime": "2023-11-06T11:00:00",
-                "person": {
-                    "LGType_": "sample.greetings.Person",
-                    "name": "Smith",
-                    "honorific": ["Mr"]
-                }
+                "LGType_": "sample.starter.Request",
+                "message": "hello"
             }
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.greetings", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.starter.GenerateResponse1", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -52,8 +47,8 @@ class Fun_greetings_Test {
       assertEquals(ResultUtil.hasKnownValue(evalRes.toOption().get(), 
         """
         {
-            "LGType_": "sample.greetings.Response",
-            "message":"Good morning Mr Smith!"
+            "LGType_": "sample.starter.Response",
+            "message":"HELLO"
         }
         """,
         appRunner.dataModel()), scala.None$.MODULE$);

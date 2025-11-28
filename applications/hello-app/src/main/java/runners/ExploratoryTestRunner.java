@@ -13,7 +13,7 @@ public class ExploratoryTestRunner {
 
     System.out.println("=====================================");
     System.out.println("Using the exploratory test tool");
-    ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, "sample.greetings.greetings", language);
+    ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, "sample.greetings.Greetings1", language);
     exploratoryTest.play(
         """
         {

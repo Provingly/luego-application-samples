@@ -33,13 +33,13 @@ class GenerateResponse2_Test {
         """
         { 
             "request": {
-                "LGType_": "sample.greetings.Request",
+                "LGType_": "sample.starter.Request",
                 "message": "hello"
             }
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.GenerateResponse2", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.starter.GenerateResponse2", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -47,7 +47,7 @@ class GenerateResponse2_Test {
       assertEquals(ResultUtil.hasKnownValue(evalRes.toOption().get(), 
         """
         {
-            "LGType_": "sample.greetings.Response",
+            "LGType_": "sample.starter.Response",
             "message":"HELLO"
         }
         """,
@@ -60,12 +60,12 @@ class GenerateResponse2_Test {
         """
         { 
             "request": {
-                "LGType_": "sample.greetings.Request"
+                "LGType_": "sample.starter.Request"
             }
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.greetings.GenerateResponse2", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.starter.GenerateResponse2", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -76,7 +76,7 @@ class GenerateResponse2_Test {
           "type":"MissingData",
           "elements":[{
             "target":"request",
-            "targetType":"sample.greetings.Request",
+            "targetType":"sample.starter.Request",
             "member":"message",
             "memberType":"Text",
             "kind":"has"}
@@ -85,5 +85,4 @@ class GenerateResponse2_Test {
         """,
         appRunner.dataModel()), scala.None$.MODULE$);
     }
-
 }

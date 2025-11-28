@@ -8,41 +8,41 @@ public class MyScenarioRunner extends ScenarioRunner {
   public Scenario[] getScenarios() {
     Scenario[] scenarios = {
 
-      new Scenario("Call generateResponse", 
-                    "sample.greetings.generateResponse", 
+      new Scenario("Call GenerateResponse1", 
+                    "sample.starter.GenerateResponse1", 
                         """
                         {
                           "the request": {
-                            "LGType_": "sample.greetings.Request",
+                            "LGType_": "sample.starter.Request",
                             "message": "Hello"
                           }
                         }"""
                   ),
-      new Scenario("Call generartResponse with incomplete data", 
-                    "sample.greetings.generateResponse", 
+      new Scenario("Call GenerateResponse1 with incomplete data", 
+                    "sample.starter.GenerateResponse1", 
                         """
                         {
                           "the request": {
-                            "LGType_": "sample.greetings.Request"
+                            "LGType_": "sample.starter.Request"
                           }
                         }"""
                   ),
       new Scenario("Call GenerateResponse2", 
-                    "sample.greetings.GenerateResponse2", 
+                    "sample.starter.GenerateResponse2", 
                         """
                         {
                           "request": {
-                            "LGType_": "sample.greetings.Request",
+                            "LGType_": "sample.starter.Request",
                             "message": "Hello"
                           }
                         }"""
                   ),
       new Scenario("Call GenerateResponse2 with missing data", 
-                    "sample.greetings.GenerateResponse2", 
+                    "sample.starter.GenerateResponse2", 
                         """
                         {
                           "request": {
-                            "LGType_": "sample.greetings.Request"
+                            "LGType_": "sample.starter.Request"
                           }
                         }"""
                   )
