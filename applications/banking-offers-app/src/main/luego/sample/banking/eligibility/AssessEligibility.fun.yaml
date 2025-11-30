@@ -6,6 +6,9 @@ output: List[Text]
 inputs:
   - name: the request
     type: 'sample.banking.Request'
+  - name: the customer
+    type: 'sample.banking.Person'
+
 definition: >
   {
     [];

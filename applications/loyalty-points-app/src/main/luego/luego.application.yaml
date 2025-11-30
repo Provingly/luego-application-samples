@@ -8,8 +8,7 @@ provider:
   name: Provingly
   email: info@provingly.io
 
-lastUpdate: 2025-07-11
-luegoVersion: 1.0.0
+generateOpenApi: true
 dependencies: []
 
 localizedInfo:

@@ -8,45 +8,19 @@ public class MyScenarioRunner extends ScenarioRunner {
   public Scenario[] getScenarios() {
     Scenario[] scenarios = {
 
-      new Scenario("Call GenerateResponse1", 
-                    "sample.starter.GenerateResponse1", 
-                        """
-                        {
-                          "the request": {
-                            "LGType_": "sample.starter.Request",
-                            "message": "Hello"
-                          }
-                        }"""
-                  ),
-      new Scenario("Call GenerateResponse1 with incomplete data", 
-                    "sample.starter.GenerateResponse1", 
-                        """
-                        {
-                          "the request": {
-                            "LGType_": "sample.starter.Request"
-                          }
-                        }"""
-                  ),
-      new Scenario("Call GenerateResponse2", 
-                    "sample.starter.GenerateResponse2", 
-                        """
-                        {
-                          "request": {
-                            "LGType_": "sample.starter.Request",
-                            "message": "Hello"
-                          }
-                        }"""
-                  ),
-      new Scenario("Call GenerateResponse2 with missing data", 
-                    "sample.starter.GenerateResponse2", 
-                        """
-                        {
-                          "request": {
-                            "LGType_": "sample.starter.Request"
-                          }
-                        }"""
+      new Scenario("Call ProcessRequest", 
+                    "sample.banking.ProcessRequest", 
+                    """
+                    {
+                      "the request": {
+                        "LGType_": "sample.banking.Request"
+                      },
+                      "the customer": {
+                        "LGType_": "sample.banking.Person"
+                      }
+                    }
+                    """
                   )
-
     };
     return scenarios;
   }

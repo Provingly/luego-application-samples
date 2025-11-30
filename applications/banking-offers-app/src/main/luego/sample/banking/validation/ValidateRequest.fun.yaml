@@ -6,7 +6,10 @@ output: List[Text]
 inputs:
   - name: the request
     type: 'sample.banking.Request'
+  - name: the customer
+    type: 'sample.banking.Person'
+
 definition: >
-  {
-    [];
+  generate list {
+    the dateOfBirth of `the customer` > the date of `the request` => 'Customer not born when the request was made'
   }

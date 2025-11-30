@@ -48,5 +48,5 @@ NoDiscount is a DiscountResult
     - with one or more reasons (reason): Text
 
 SpecialPriceOffer is a DiscountResult
-    - with one percentagDiscount: Number
+    - with one percentageDiscount: Number
     - with one validUntil: Date
