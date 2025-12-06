@@ -18,16 +18,8 @@ inputs:
     type: 'sample.banking.Request'
   - name: the customer
     type: 'sample.banking.Person'
+    
 definition: >
-  depending on nonEmptyListOption(ValidateRequest(`the request`, `the customer`)) {
-    case Some(errors) => InvalidRequest(errors = errors)
-    case None => 
-      depending on nonEmptyListOption(AssessEligibility(`the request`, `the customer`)) {
-        case Some(rejections) => NoDiscount(reasons = rejections)
-        case None => CalculateSpecialOffer(`the request`, `the customer`)
-      }
-  }
-  /* should be rewritten as
   depending on ValidateRequest(`the request`, `the customer`) {
     case errors: NEList[Text] => InvalidRequest(errors = errors)
     case Nil => 
@@ -36,4 +28,3 @@ definition: >
         case Nil => CalculateSpecialOffer(`the request`, `the customer`)
       }
   }
-  */

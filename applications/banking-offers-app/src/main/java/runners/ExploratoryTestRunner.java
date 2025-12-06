@@ -14,6 +14,7 @@ public class ExploratoryTestRunner {
     System.out.println("=====================================");
     System.out.println("Using the exploratory test tool");
     ExploratoryTestManager exploratoryTest = new ExploratoryTestManager(appRunner, "sample.banking.ProcessRequest", language);
+//    exploratoryTest.setLogLevel("Info");
     exploratoryTest.setLogLevel("Trace");
     exploratoryTest.play(
         """

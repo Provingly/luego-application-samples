@@ -6,7 +6,7 @@ package sample.banking
 Request is a record
     - with one customer: Person
     - with one date: Date
-    - with one products: NEList[Product]
+    - with one or more products (product): Product
 
 Person is a record
     - with one dateOfBirth: Date
@@ -18,7 +18,7 @@ Person is a record
 // Products
 //-----------------------
 Product is a record
-    - with one contractDate: Date
+    - with one startDate: Date
 
 Account is a Product
 CurrentAccount is an Account
