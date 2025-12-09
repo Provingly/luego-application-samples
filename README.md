@@ -1,6 +1,20 @@
 # Build and Run Sample Luego Applications.
 
-## Requirements
+The goal of this repository is to help you getting started with programming in the Luego language by being able to look at real-world working examples.
+The application samples aim at showing various level of complexity, various use cases in various industries.
+
+## Description of the samples
+This repositort contains the following application samples.
+
+| Sample                 | Summary                    | Ingredients  |
+| ---------------------  | -------------------------- | ------------ |
+| luego-hello            | Basic app                  | Hello world, very simple functions and decision models             |
+| luego-loyalty-points   | Business logic 101         | Modeling a business domain and some decision logic |
+| luego-banking-offers   | Composing decisions        | Validation, Eligibility and Discount calculation |
+| insurance-fraud (soon)       | Fraud patterns                 | Precise modeling of sophisticated fraud patterns   |
+| car-tax-discount (soon)      | Eligibility for tax reductions | How to model sophisticated eligibility criteria        |
+
+## Prerequisites to run the samples
 - maven
 - Java 21: set your JAVA_HOME so that it points to Java JDK21 or later
 If you need to install Java 21, you can download and install it from https://adoptium.net/temurin/releases/?arch=any&version=21&os=any
