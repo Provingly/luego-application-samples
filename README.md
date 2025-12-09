@@ -5,33 +5,17 @@
 - Java 21: set your JAVA_HOME so that it points to Java JDK21 or later
 If you need to install Java 21, you can download and install it from https://adoptium.net/temurin/releases/?arch=any&version=21&os=any
 
-## Compiling the java source code
-Run the following commands to compile the java source code of all the modules contained in the folder 'applications'.
+## Compiling the Luego source code
+Run the following commands to compile the source code of all the modules contained in the folder 'applications'. These commands will compile both the Luego source code (the business logic of your Luego applications) and some utility classes (like scenario runners and conversational exploratory tests) written in Java.
 ```
 cd applications
 mvn clean
 mvn compile
 ```
 
-## Compiling the Luego source code and running an application
-Go to a folder containing a Luego application, for instance the 'sample-app-starter' application: 
-```
-cd sample-app-starter
-```
-
-### Compile the Luego application
-```
-mvn exec:java@luego-compiler -Dexec.args="app compile"
-```
-
-If compilation is successful, the folder target/luego will contain binary files for each function or decision model. We will then be ready to run Luego programs that use those functions and decision models.
+When the compilation is successful for a given module, the folder target/luego will contain binary files for each function or decision model. We will then be ready to run Luego programs that use those functions and decision models.
 
 If you compile the Luego source again after a modification of the source code, the old compiled binary files will be automatically cleaned.
-
-The default log level of the compiler is Info. If you want the compiler to output more information, you can set the level to Trace as follows:
-```
-mvn exec:java@luego-compiler -Dexec.args="app compile --logLevel=Trace"
-```
 
 ### Running some scenarios
 ```
@@ -57,7 +41,7 @@ This maven goal runs automated tests defined with JUnit in src/test/java.
 
 ### Packaging the Luego app
 ```
-mvn exec:java@luego-compiler -Dexec.args="app package"
+mvn package
 ```
 
 If packaging is successful, you should have an archive called luego-starter-app.zip in the folder target/luego. We will be ready to deploy our application to a Provingly server.
@@ -79,9 +63,8 @@ If packaging is successful, you should have an archive called luego-starter-app.
 or use the Luego app generation tool
 
 ## Check the version of the Luego compiler and runtime
-```
-mvn exec:java@luego-compiler -Dexec.args="app version"
-```
+...
+
 
 ## Documentation of the Luego programming language and the Provingly technology
 Visit https://docs.provingly.io

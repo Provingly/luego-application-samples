@@ -33,13 +33,17 @@ class GenerateResponse1_Test {
         """
         { 
             "the request": {
-                "LGType_": "sample.starter.Request",
-                "message": "hello"
-            }
+                "LGType_": "sample.banking.Request",
+                "date": "2025-12-10"
+            },
+            "the customer": {
+                "LGType_": "sample.banking.Person",
+                "dateOfBirth": "2000-10-10"
+            }            
         }     
         """;
      
-      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.starter.GenerateResponse1", 
+      Either<PreEvaluationError, Tuple2<Result<?>, LGType>> evalRes = appRunner.evaluate("sample.banking.ProcessRequest", 
                                                                                          parametersString, "en");
 
       System.out.println("evalRes = " + evalRes);        
@@ -47,8 +51,9 @@ class GenerateResponse1_Test {
       assertEquals(ResultUtil.hasKnownValue(evalRes.toOption().get(), 
         """
         {
-            "LGType_": "sample.starter.Response",
-            "message":"HELLO"
+          "LGType_": "sample.banking.SpecialPriceOffer",
+          "percentageDiscount": 0.1,
+          "validUntil": "2025-12-31"
         }
         """,
         appRunner.dataModel()), scala.None$.MODULE$);

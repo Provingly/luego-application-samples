@@ -9,26 +9,22 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>luego-hello-app</artifactId>
+    <artifactId>luego-starter-app</artifactId>
     <packaging>jar</packaging>
 
     <build>
+                 
         <plugins>
 
+            <!-- See article https://zetcode.com/maven/exec-plugin/ -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.2</version>
-                <executions> <!-- we configure several executions-->
-                    <execution>
-                        <id>luego-compiler</id>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>                        
-                        <configuration>
-                            <mainClass>luego.DevCLI</mainClass>
-                        </configuration>
-                    </execution>
+                <configuration>
+                    <executable>java</executable>
+                </configuration>
+                <executions>
                     <execution>
                         <id>scenario-runner</id>
                         <goals>
@@ -48,11 +44,7 @@
                         </configuration>
                     </execution>
                     
-                </executions>
-
-                <configuration>
-                    <executable>java</executable>
-                </configuration>                             
+                </executions>                           
             </plugin>
 
         </plugins>

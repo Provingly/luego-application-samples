@@ -9,12 +9,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>luego-loyalty-app</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>luego-hello-app</artifactId>
     <packaging>jar</packaging>
 
-
     <build>
+
         <plugins>
 
             <plugin>
@@ -22,15 +21,6 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.2</version>
                 <executions> <!-- we configure several executions-->
-                    <execution>
-                        <id>luego-compiler</id>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>                        
-                        <configuration>
-                            <mainClass>luego.DevCLI</mainClass>
-                        </configuration>
-                    </execution>
                     <execution>
                         <id>scenario-runner</id>
                         <goals>

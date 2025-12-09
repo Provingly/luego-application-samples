@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>banking-offers-app</artifactId>
+    <artifactId>luego-banking-offers-app</artifactId>
     <packaging>jar</packaging>
 
     <build>
@@ -24,21 +24,6 @@
                     <executable>java</executable>
                 </configuration>
                 <executions>
-                    <execution>
-                        <id>luego-compiler</id>
-                        <!--<phase>compile</phase>  will be triggered when running 'mvn compile' at the top level -->
-                        <goals>
-                            <goal>java</goal>
-                        </goals>                        
-                        <configuration>
-                            <mainClass>luego.DevCLI</mainClass>
-                            <workingDirectory>${project.basedir}/banking-offers-app</workingDirectory>    
-                            <arguments>
-                                <argument>app</argument>
-                                <argument>compile</argument>
-                            </arguments>                            
-                        </configuration>
-                    </execution>
                     <execution>
                         <id>scenario-runner</id>
                         <goals>

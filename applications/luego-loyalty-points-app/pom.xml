@@ -9,36 +9,20 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>luego-starter-app</artifactId>
+    <artifactId>luego-loyalty-points-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <build>
-        <plugins>
 
-            <!-- See article https://zetcode.com/maven/exec-plugin/ -->
+    <build>
+
+        <plugins>
+ 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.2</version>
-                <configuration>
-                    <executable>java</executable>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>luego-compiler</id>
-                        <!--<phase>compile</phase>  will be triggered when running 'mvn compile' at the top level -->
-                        <goals>
-                            <goal>java</goal>
-                        </goals>                        
-                        <configuration>
-                            <mainClass>luego.DevCLI</mainClass>
-                            <workingDirectory>${project.basedir}/starter-app</workingDirectory>    
-                            <arguments>
-                                <argument>app</argument>
-                                <argument>compile</argument>
-                            </arguments>                            
-                        </configuration>
-                    </execution>
+                <executions> <!-- we configure several executions-->
                     <execution>
                         <id>scenario-runner</id>
                         <goals>
@@ -58,7 +42,11 @@
                         </configuration>
                     </execution>
                     
-                </executions>                           
+                </executions>
+
+                <configuration>
+                    <executable>java</executable>
+                </configuration>                             
             </plugin>
 
         </plugins>
