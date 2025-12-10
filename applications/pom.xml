@@ -102,5 +102,13 @@
             <layout>default</layout>
         </repository>
     </repositories>       
+    <pluginRepositories>
+        <pluginRepository>
+            <id>GitLab</id>
+            <name>GitLab</name>
+            <url>https://gitlab.com/api/v4/projects/75218486/packages/maven/</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>      
     
 </project>
