@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import luego.runtime.application.LuegoAppInfo;
 import luego.runtime.application.LuegoRunner;
 import luego.runtime.results.*;
 import luego.runtime.values.PreEvaluationError;
@@ -22,8 +21,7 @@ class GenerateResponse2_Test {
     static void setup() {
         System.out.println("@BeforeAll - executes once before all test methods in this class");
 
-        LuegoAppInfo appInfo = LuegoAppInfo.read(".");
-        appRunner = LuegoRunner.apply("./target/luego/app/" + appInfo.appId() + "/" + appInfo.appVersion());
+        appRunner = LuegoRunner.apply("./target/luego/app");
     }  
 
 

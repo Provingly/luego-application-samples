@@ -13,9 +13,7 @@
     <packaging>jar</packaging>
 
     <build>
-
         <plugins>
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -39,15 +37,12 @@
                             <mainClass>runners.ExploratoryTestRunner</mainClass>
                         </configuration>
                     </execution>
-                    
                 </executions>
 
                 <configuration>
                     <executable>java</executable>
                 </configuration>                             
             </plugin>
-
         </plugins>
     </build>
-
 </project>

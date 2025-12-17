@@ -1,0 +1,14 @@
+---
+domain: Samples
+appId: luego-starter-app
+
+provider:
+  name: Provingly
+  email: info@provingly.io
+
+localizedInfo:
+  - label: Luego Starter App
+    description: A sample to quickstart your development of Luego apps
+    tags: [ 'sample', 'starter' ]
+    lang: en
+    country:

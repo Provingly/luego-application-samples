@@ -1,0 +1,9 @@
+target:
+- type: 'ProvinglyServer'
+- url: 'http://localhost:9000/apps'
+
+domain: 'sample'
+appId: 'starter'
+
+versioning: 
+- scheme: 'incrementPatch' # 'incrementMinor', 'incrementMajor',  'replace' with version: '1.2.0'

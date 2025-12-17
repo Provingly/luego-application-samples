@@ -7,8 +7,7 @@ public class ExploratoryTestRunner {
 
   static void main(String[] args) {
 
-    LuegoAppInfo appInfo = LuegoAppInfo.read(".");
-    LuegoRunner appRunner = LuegoRunner.apply("./target/luego/app/" + appInfo.appId() + "/" + appInfo.appVersion());
+    LuegoRunner appRunner = LuegoRunner.apply("./target/luego/app");
     String language = "en";
 
     System.out.println("=====================================");

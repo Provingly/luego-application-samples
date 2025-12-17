@@ -1,0 +1,9 @@
+target:
+- type: 'LocalDirectory'
+- path: '.'
+
+domain: 'sample'
+appId: 'starter'
+
+versioning: 
+- scheme: 'incrementMinor'
