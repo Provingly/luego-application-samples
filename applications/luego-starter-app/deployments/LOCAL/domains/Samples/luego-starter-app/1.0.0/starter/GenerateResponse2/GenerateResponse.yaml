@@ -1,0 +1,7 @@
+$type: Obj
+ot: sample.starter.Response
+mappings:
+- - message
+  - $type: Ref
+    id: intermediate result
+id: []

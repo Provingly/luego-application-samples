@@ -1,0 +1,25 @@
+name: sample.starter
+imports: []
+definedTypes:
+- name: Request
+  kind: Struct
+  members:
+  - name: message
+    singular: null
+    gender: null
+    type: Text
+    kind: Attribute
+    multiplicity: '1'
+    isAbstract: false
+    required: false
+- name: Response
+  kind: Struct
+  members:
+  - gender: null
+    isAbstract: false
+    multiplicity: '1'
+    kind: Attribute
+    type: Text
+    name: message
+    required: false
+    singular: null

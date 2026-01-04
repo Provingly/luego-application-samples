@@ -1,0 +1,8 @@
+rootNode: GenerateResponse
+inputsWithAliases:
+- name: request
+  alias: the request
+  type: sample.starter.Request
+output: sample.starter.Response
+imports:
+- luego.text

@@ -1,0 +1,10 @@
+$type: NativeFunApp
+funDef: luego.text.upper
+args:
+- $type: Nav
+  obj:
+    $type: Ref
+    id: the request
+  elems:
+  - - message
+    - Text

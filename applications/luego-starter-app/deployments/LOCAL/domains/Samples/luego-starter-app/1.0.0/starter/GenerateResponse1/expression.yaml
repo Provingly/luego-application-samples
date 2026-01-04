@@ -1,0 +1,23 @@
+$type: Block
+stmts:
+- $type: Let
+  name: m
+  e:
+    $type: NativeFunApp
+    funDef: luego.text.upper
+    args:
+    - $type: Nav
+      obj:
+        $type: Ref
+        id: the request
+      elems:
+      - - message
+        - Text
+e:
+  $type: Obj
+  ot: sample.starter.Response
+  mappings:
+  - - message
+    - $type: Ref
+      id: m
+  id: []

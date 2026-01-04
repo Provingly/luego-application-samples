@@ -1,0 +1,38 @@
+{
+  "name": "sample.starter",
+  "imports": [],
+  "definedTypes": [
+    {
+      "name": "Request",
+      "kind": "Struct",
+      "members": [
+        {
+          "kind": "Attribute",
+          "name": "message",
+          "type": "Text",
+          "multiplicity": "1",
+          "singular": null,
+          "required": false,
+          "isAbstract": false,
+          "gender": null
+        }
+      ]
+    },
+    {
+      "name": "Response",
+      "kind": "Struct",
+      "members": [
+        {
+          "kind": "Attribute",
+          "name": "message",
+          "type": "Text",
+          "multiplicity": "1",
+          "singular": null,
+          "required": false,
+          "isAbstract": false,
+          "gender": null
+        }
+      ]
+    }
+  ]
+}

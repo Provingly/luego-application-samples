@@ -1,0 +1,9 @@
+target:
+- type: 'LocalDirectory'
+- path: './deployments/LOCAL'
+
+domain: 'sample'
+appId: 'starter'
+
+versioning: 
+- scheme: 'incrementMinor'
