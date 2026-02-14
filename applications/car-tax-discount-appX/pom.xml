@@ -19,9 +19,9 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.6.2</version>
                 <configuration>
                     <executable>java</executable>
+                    <skip>false</skip>
                 </configuration>
                 <executions>
                     <execution>

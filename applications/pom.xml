@@ -21,7 +21,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <!-- Version used to run Luego programs-->
-        <luego.version>1.0.0-b54</luego.version>
+        <luego.version>1.0.0-b58</luego.version>
     </properties>
 
 
@@ -63,8 +63,19 @@
                 <plugin>
                     <groupId>io.provingly</groupId>
                     <artifactId>luego-maven-plugin</artifactId>
-                    <version>1.0.0-beta15</version>
+                    <version>1.0.0-beta16</version>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.6.2</version>
+                    <configuration>
+                        <skip>true</skip>
+                        <mainClass>none</mainClass>                        
+                    </configuration>                    
+                </plugin>
+
             </plugins>
         </pluginManagement>    
 

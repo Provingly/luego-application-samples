@@ -17,7 +17,10 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.6.2</version>
+                <configuration>
+                    <executable>java</executable>
+                    <skip>false</skip>
+                </configuration>
                 <executions> <!-- we configure several executions-->
                     <execution>
                         <id>scenario-runner</id>
@@ -39,9 +42,6 @@
                     </execution>
                 </executions>
 
-                <configuration>
-                    <executable>java</executable>
-                </configuration>                             
             </plugin>
         </plugins>
     </build>

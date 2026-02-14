@@ -8,7 +8,14 @@ Request is a record
     - with one date: Date
     - with one or more products (product): Product
 
-Person is a record
+Customer is a record
+    - with one fiscalId: Text
+
+Business is a Customer
+    - with one or more shareholders (shareholder): Person 
+    - with one or more directors (director): Person 
+
+Person is a Customer
     - with one dateOfBirth: Date
     - with one annualIncome: BigDecimal
     - with zero or one spouse: Person

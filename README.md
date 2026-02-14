@@ -4,15 +4,15 @@ The goal of this repository is to help you getting started with programming in t
 The application samples aim at showing various level of complexity, various use cases in various industries.
 
 ## Description of the samples
-This repositort contains the following application samples.
+This repository contains the following application samples.
 
-| Sample                 | Summary                    | Ingredients  |
-| ---------------------  | -------------------------- | ------------ |
-| luego-hello            | Basic app                  | Hello world, very simple functions and decision models             |
-| luego-loyalty-points   | Business logic 101         | Modeling a business domain and some decision logic |
-| luego-banking-offers   | Composing decisions        | Validation, Eligibility and Discount calculation |
-| insurance-fraud (soon)       | Fraud patterns                 | Precise modeling of sophisticated fraud patterns   |
-| car-tax-discount (soon)      | Eligibility for tax reductions | How to model sophisticated eligibility criteria        |
+| Sample                        | Summary                        | Ingredients  |
+| ----------------------------  | ------------------------------ | ------------ |
+| luego-hello                   | Basic app                      | Hello world, very simple functions and decision models             |
+| luego-loyalty-points          | Business logic 101             | Modeling a business domain and some decision logic |
+| luego-banking-offers          | Composing decisions            | Validation, Eligibility and Discount calculation |
+| insurance-fraud (soon)        | Fraud patterns                 | Precise modeling of sophisticated fraud patterns   |
+| car-tax-discount (soon)       | Eligibility for tax reductions | How to model sophisticated eligibility criteria        |
 
 ## Prerequisites to run the samples
 - maven
@@ -30,19 +30,21 @@ When the compilation is successful for a given module, the folder target/luego w
 
 If you compile the Luego source again after a modification of the source code, the old compiled binary files will be automatically cleaned.
 
-### Running some scenarios
+### Running some scenarios for a specific application
 ```
+cd luego-starter-app
 mvn exec:java@scenario-runner
 ```
-This maven goal runs the Java program `runners.ScenarioRunner` located in src/main/java. You can look at the ScenarioRunner.java file to see how to integrate a Luego program into Java.
+This maven goal runs the Java program `runners.MyScenarioRunner` located in src/main/java. The code in the MyScenarioRunner.java file shows how you can easily integrate a Luego program with Java.
 
-### Running exploratory tests
+### Running exploratory tests for a specific application
 ```
+cd luego-starter-app
 mvn exec:java@luego-exploratory-tests
 ```
 This maven goal runs the Java program `runners.ExploratoryTestRunner` located in src/main/java. You can look at the ExploratoryTestRunner.java file to see how to configure an exploratory test for a function/decision model of your choice.
 
-The exploratory test runner is a great way to quickly verify the behaviour of our Luego programs for various scenarios. The creation of scenario data is greatly facilitated by a conversational agent that will ask relevant questions to incrementally build an input payload to test a function or decision model.
+The exploratory test runner is a great way to quickly verify the behaviour of our Luego programs for various scenarios. The creation of scenario data is greatly facilitated by a "conversational agent" that will ask relevant questions to incrementally build an input payload that is then used to test a function or decision model.
 
 We can then reuse the created input payloads in our automated regression tests.
 
@@ -57,7 +59,7 @@ This maven goal runs automated tests defined with JUnit in src/test/java.
 mvn package
 ```
 
-If packaging is successful, you should have an archive called app.zip in the folder target/luego. We will be ready to deploy our application to a Provingly server.
+If packaging is successful, you should have an archive called app.zip in the folder target/luego. This archive is self-contained and bundles the binary files needed to execute a Luego application. We are ready to deploy our application to a Provingly server.
 
 ### Deploying to the folder used by our Provingly Server
 In a Provingly Server, deployable artefacts are organized in domains.
