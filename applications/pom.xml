@@ -21,7 +21,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <!-- Version used to run Luego programs-->
-        <luego.version>1.0.0-b58</luego.version>
+        <luego.version>1.0.0-b59</luego.version>
     </properties>
 
 

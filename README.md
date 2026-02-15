@@ -66,11 +66,6 @@ If packaging is successful, you should have an archive called app.zip in the fol
 - go to the deployed-apps folder and run the script `run-apis-on-docker.bash`
 The first time you run this script, the Docker image luego-server-apis will be pulled from DockerHub. Then a container will be started.
 
-### Test your applications with SwaggerUI
-Once the Docker container is started, open a browser and go to http://localhost:9000/v1/applications/html 
-You will be presented with a list of deployed applications.
-Initially, the list is empty.
-
 ### Deploying to the folder used by our Provingly Server
 In a Provingly Server, deployable artefacts are organized in domains.
 - A Provingly Server manages multiple domains identified by a unique name with the Provingly Server application repository.
@@ -106,6 +101,16 @@ There are several ways to deploy an application:
 
 When calling an application, the calling application will be able to specify a full version, e.g. to make a call to  application `Pricing/DiscountCalculation/1.1.0` or a partial version, e.g. to make a call to application `Pricing/DiscountCalculation/1.1`. When a partial version is passed, the server will determine the most recent patch and will use it to serve the request.
 
+### Test your applications with SwaggerUI
+Once the Docker container is started, open a browser and go to http://localhost:9000/v1/applications/html 
+You will be presented with a list of deployed applications.
+Initially, the list is empty.
+
+- copy an application archive in the right location
+- unzip it
+- rename the app folder as '1.0.0'
+- restart the Docker container
+- refresh the browser page
 
 ## Generating a Luego application project from scratch (not yet available)
 ```
